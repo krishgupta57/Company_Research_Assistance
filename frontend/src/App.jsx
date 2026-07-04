@@ -49,7 +49,7 @@ function App() {
     setDiscordStatus(null);
 
     try {
-      const res = await fetch('/api/research/', {
+      const res = await fetch('https://company-research-assistance.onrender.com/api/research/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -86,7 +86,7 @@ function App() {
       const payload = `**🚀 New Company Intelligence Report Generated!**\n\n**Applicant Details**\n👤 Name: ${config.appName || 'Not provided'}\n📧 Email: ${config.appEmail || 'Not provided'}\n\n**Research Summary**\n🏢 **Company:** ${researchData.name}\n🌐 **Website:** <${researchData.website}>\n\n*See attached PDF for full AI-generated insights.*`;
       formData.append('payload_json', JSON.stringify({ content: payload }));
 
-      const res = await fetch('/api/discord/', {
+      const res = await fetch('https://company-research-assistance.onrender.com/api/discord/', {
         method: 'POST',
         body: formData
       });
